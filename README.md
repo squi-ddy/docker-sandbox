@@ -1,5 +1,5 @@
 # Docker Sandbox
-(originally made for IO question judging)
+(originally made for IO solution judging)
 
 ## Setup
 1. Install `pipenv` (virtual environment manager)
