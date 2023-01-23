@@ -69,10 +69,12 @@ def sandbox(stdin, ans, ansfile):
 
     if runtime > datetime.timedelta(seconds=1):
         print("TLE")
+        container.remove()
         return (False, 2)
 
     if oom:
         print('Out Of Memory')
+        container.remove()
         return (False, 3)
 
     if status != 'exited':
@@ -85,17 +87,18 @@ def sandbox(stdin, ans, ansfile):
     if len(err) > 0:
         print("Status: Error")
         print(err)
+        container.remove()
         return (False, 0, err)
 
     o = int(output.strip())
     if o == ans:
         print("AC")
+        container.remove()
         return (True, runtime / datetime.timedelta(microseconds=1000))
 
     print(f"Output mismatch: expected '{ans}', got '{o}'")
-    return (False, 1, ans, o)
-
     container.remove()
+    return (False, 1, ans, o)
 
 if __name__ != '__main__':
     print = dummy_print
