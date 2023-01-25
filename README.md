@@ -2,32 +2,36 @@
 (originally made for IO solution judging)
 
 ## Setup
-1. Install `pipenv` (virtual environment manager)
+1. Install docker
+
+Follow instructions [here](https://docs.docker.com/get-docker/)
+  
+2. Install `pipenv` (virtual environment manager)
 
 ```
 pip install --user pipenv
 ```
 
-2. Install dependencies via `pipenv`
+3. Install dependencies via `pipenv`
 
 ```
 pipenv install
 ```
 
-3. Activate the virtual environment
+4. Activate the virtual environment
 
 ```
 pipenv shell
 ```
 
-4. Run `docker/judging-image.py` to make the judge image
+5. Run `docker/judging-image.py` to make the judge image
 
 ```
 cd docker
 python judging-image.py
 ```
 
-5. (optional) Test the sandbox
+6. (optional) Test the sandbox
 
 ```
 cd sandbox
